@@ -1,0 +1,12 @@
+[
+    {
+        "userName": "user c",
+        "iterations": 1,
+        "runTime": 21.0926513671875,
+        "error": -3430.351490904337,
+        "memory": 1550.442496,
+        "signType": "G-3",
+        "algorithm": "cgnr",
+        "cpu": 53.4
+    }
+]
