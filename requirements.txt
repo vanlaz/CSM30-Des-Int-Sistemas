@@ -1,0 +1,6 @@
+numpy==1.26.2
+opencv-python==4.8.1.78
+psutil==5.9.6
+Pyro5==5.15
+scipy==1.11.4
+serpent==1.41
