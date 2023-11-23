@@ -1,5 +1,3 @@
-from scipy.ndimage import maximum_filter
-
 # S - Número de amostras do sinal,  N - Número de elementos sensores
 def signal_gain(matrix_type):
     N = 64
@@ -15,6 +13,7 @@ def signal_gain(matrix_type):
             gamma = 100 + (1 / 20) * l * (l ** 0.5)
             gl, c = gl, c * gamma
 
+
 def image_reshape(image, matrix_type):
     image = image - image.min()
     image = image / image.max()
@@ -24,4 +23,3 @@ def image_reshape(image, matrix_type):
     else:
         image = image.reshape((30, 30), order='F')
     return image
-

@@ -1,17 +1,13 @@
-import base64
 import random
-import sys
 import numpy as np
 import cv2 as cv
 import time
-import matplotlib.pyplot as plt
 import psutil
-from scipy.ndimage import maximum_filter
-import os
 import threading
 import json
 
 from helpers.utils import image_reshape
+
 
 def cgne(matrix_type, signal_type, user, algorithm):
     global max_cpu_usage
@@ -22,9 +18,9 @@ def cgne(matrix_type, signal_type, user, algorithm):
     if matrix_type == "1":
         model_path = "model_1"
     # r0=g−Hf0
-    file = open(f'./input/{model_path}/{signal_type}.csv','rb')
-    entry_sign = np.loadtxt(file,delimiter=',')
-    matrix = open(f'./input/{model_path}/H.csv','rb')
+    file = open(f'./input/{model_path}/{signal_type}.csv', 'rb')
+    entry_sign = np.loadtxt(file, delimiter=',')
+    matrix = open(f'./input/{model_path}/H.csv', 'rb')
     matrix = np.loadtxt(matrix, delimiter=',')
 
     # p0=HTr0
@@ -35,7 +31,7 @@ def cgne(matrix_type, signal_type, user, algorithm):
 
     count = 1
     error = 0
-    while error < float(1e10**(-4)):
+    while error < float(1e10 ** (-4)):
         # αi=rTiripTipi
         alpha = np.dot(entry_sign.T, entry_sign) / np.dot(p.T, p)
 
@@ -59,7 +55,7 @@ def cgne(matrix_type, signal_type, user, algorithm):
         count += 1
 
     v = False
-    time.sleep(0.25)  
+    time.sleep(0.25)
 
     image = image_reshape(image, matrix_type)
     process = psutil.Process()
@@ -80,25 +76,23 @@ def cgne(matrix_type, signal_type, user, algorithm):
 
     filename = './results/report_cgne.json'
     listObj = []
-    
+
     # Read JSON file
     with open(filename) as fp:
         listObj = json.load(fp)
-    
-    
+
     listObj.append(data)
 
     with open(filename, 'w') as json_file:
-        json.dump(listObj, json_file, 
-                            indent=4,  
-                            separators=(',',': '))
+        json.dump(listObj, json_file,
+                  indent=4,
+                  separators=(',', ': '))
 
     memory = process.memory_info().rss / 1000000
 
     # # Salvar imagem localmente
     final = cv.resize(image, None, fx=10, fy=10, interpolation=cv.INTER_AREA)
     cv.imwrite('./results/cgne_result.png', final)
-
 
 
 def cgnr(matrix_type, signal_type, user, algorithm):
@@ -108,9 +102,9 @@ def cgnr(matrix_type, signal_type, user, algorithm):
     model_path = "model_2"
     if matrix_type == "1":
         model_path = "model_1"
-    file = open(f'./input/{model_path}/{signal_type}.csv','rb')
-    entry_sign = np.loadtxt(file,delimiter=',')
-    matrix = open(f'./input/{model_path}/H.csv','rb')
+    file = open(f'./input/{model_path}/{signal_type}.csv', 'rb')
+    entry_sign = np.loadtxt(file, delimiter=',')
+    matrix = open(f'./input/{model_path}/H.csv', 'rb')
     matrix = np.loadtxt(matrix, delimiter=',')
 
     # z0=HTr0
@@ -122,7 +116,7 @@ def cgnr(matrix_type, signal_type, user, algorithm):
 
     count = 1
     erro = 0
-    while erro < 1e10**(-4):
+    while erro < 1e10 ** (-4):
         print("foi no cgnr linha 177")
 
         # wi=Hpi
@@ -148,7 +142,7 @@ def cgnr(matrix_type, signal_type, user, algorithm):
 
         # ϵ=||ri+1||2−||ri||2
         erro = np.linalg.norm(ri, ord=2) - np.linalg.norm(entry_sign, ord=2)
-        if erro < 1e10**(-4):
+        if erro < 1e10 ** (-4):
             break
 
         count += 1
@@ -175,23 +169,22 @@ def cgnr(matrix_type, signal_type, user, algorithm):
     print(data)
     filename = './results/report_cgnr.json'
     listObj = []
-    
+
     # Read JSON file
     with open(filename) as fp:
         listObj = json.load(fp)
-    
-    
+
     listObj.append(data)
 
     with open(filename, 'w') as json_file:
-        json.dump(listObj, json_file, 
-                            indent=4,  
-                            separators=(',',': '))
+        json.dump(listObj, json_file,
+                  indent=4,
+                  separators=(',', ': '))
 
-
-    memory = process.memory_info().rss / 1000000
+    process.memory_info().rss / 1000000
     final = cv.resize(image, None, fx=10, fy=10, interpolation=cv.INTER_AREA)
     cv.imwrite('./results/cgnr_result.png', final)
+
 
 def main():
     t = threading.Thread(target=monitor_cpu_usage)
