@@ -8,5 +8,56 @@
         "signType": "G-3",
         "algorithm": "cgnr",
         "cpu": 53.4
+    },
+    {
+        "userName": "user b",
+        "iterations": 1,
+        "runTime": 2.8226816654205322,
+        "error": -0.00018252408081796217,
+        "memory": 286.470144,
+        "signType": "G-1",
+        "algorithm": "cgnr",
+        "cpu": 8.9
+    },
+    {
+        "userName": "user c",
+        "iterations": 1,
+        "runTime": 2.9480133056640625,
+        "error": -0.00018252408081796217,
+        "memory": 285.974528,
+        "signType": "G-1",
+        "algorithm": "cgnr",
+        "cpu": 15.5
+    },
+    {
+        "userName": "user a",
+        "iterations": 1,
+        "runTime": 21.232689380645752,
+        "error": -3430.351490904337,
+        "memory": 1550.491648,
+        "signType": "G-3",
+        "algorithm": "cgnr",
+        "cpu": 74.1
+    },
+    {
+        "userName": "user a",
+        "iterations": 1,
+        "runTime": 2.929736375808716,
+        "error": -0.00019901779096381006,
+        "memory": 285.83936,
+        "signType": "G-2",
+        "algorithm": "cgnr",
+        "cpu": 10.0
+    },
+    {
+        "userName": "user a",
+        "iterations": 1,
+        "runTime": 2.8636369705200195,
+        "error": -521919.63209689595,
+        "memory": 286.547968,
+        "matrix": "2",
+        "signType": "G-3",
+        "algorithm": "cgnr",
+        "cpu": 9.3
     }
 ]

@@ -2,8 +2,9 @@
 
 import Pyro5.api
 
-uri = input("What is the Pyro uri of the greeting object? ").strip()
+import server
+
 name = input("What is your name? ").strip()
 
-greeting_maker = Pyro5.api.Proxy(uri)  # get a Pyro proxy to the greeting object
+greeting_maker = Pyro5.api.Proxy(server.uri)  # get a Pyro proxy to the greeting object
 print(greeting_maker.get_fortune(name))  # call method normally
