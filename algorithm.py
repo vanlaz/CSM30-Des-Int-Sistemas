@@ -47,7 +47,7 @@ def cgne(matrix_type, signal_type, user, algorithm):
 
         # ϵ=||ri+1||2−||ri||2
         error += np.linalg.norm(entry_sign, ord=2) - np.linalg.norm(ri, ord=2)
-        if error < 1e10 - 4:
+        if error < (1e10**(-4)):
             break
 
         # βi=rTi+1ri+1rTiri
@@ -72,6 +72,7 @@ def cgne(matrix_type, signal_type, user, algorithm):
         "runTime": run_time,
         "error": error,
         "memory": memory,
+        "matrix": matrix_type,
         "signType": signal_type,
         "algorithm": algorithm,
         "cpu": max_cpu_usage,
@@ -168,6 +169,7 @@ def cgnr(matrix_type, signal_type, user, algorithm):
         "runTime": run_time,
         "error": erro,
         "memory": memory,
+        "matrix": matrix_type,
         "signType": signal_type,
         "algorithm": algorithm,
         "cpu": max_cpu_usage,
@@ -193,28 +195,6 @@ def cgnr(matrix_type, signal_type, user, algorithm):
     final = cv.resize(image, None, fx=10, fy=10, interpolation=cv.INTER_AREA)
     cv.imwrite('./results/cgnr_result.png', final)
 
-def main():
-    t = threading.Thread(target=monitor_cpu_usage)
-    t.start()
-
-    algorithms = ['cgne', 'cgnr']
-    algorithm = random.choice(algorithms)
-    matrixes = ['1', '2']
-    matrix_type = random.choice(matrixes)
-    signals = ['G-1', 'G-2', 'G-3']
-    signal_type = random.choice(signals)
-    users = ['user a', 'user b', 'user c']
-    user = random.choice(users)
-    if algorithm == 'cgne':
-        t2 = threading.Thread(target=cgne, args=(matrix_type, signal_type, user, algorithm))
-        t2.start()
-    else:
-        t2 = threading.Thread(target=cgnr, args=(matrix_type, signal_type, user, algorithm))
-        t2.start()
-    t2.join()
-    t.join()
-
-
 def monitor_cpu_usage():
     global v
     global max_cpu_usage
@@ -227,6 +207,31 @@ def monitor_cpu_usage():
         cpu_usage_list_by_second.append(psutil.cpu_percent(interval=0.25))
     max_cpu_usage = max(cpu_usage_list_by_second)
 
+def main():
+    thread_cpu = threading.Thread(target=monitor_cpu_usage)
+    thread_cpu.start()
+
+    algorithms = ['cgne', 'cgnr']
+    algorithm = random.choice(algorithms)
+
+    matrixes = ['1', '2']
+    matrix_type = random.choice(matrixes)
+
+    signals = ['G-1', 'G-2', 'G-3']
+    signal_type = random.choice(signals)
+
+    users = ['user a', 'user b', 'user c']
+    user = random.choice(users)
+
+    if algorithm == 'cgne':
+        thread_alg = threading.Thread(target=cgne, args=(matrix_type, signal_type, user, algorithm))
+        thread_alg.start()
+    else:
+        thread_alg = threading.Thread(target=cgnr, args=(matrix_type, signal_type, user, algorithm))
+        thread_alg.start()
+
+    thread_alg.join()
+    thread_cpu.join()
 
 if __name__ == '__main__':
     main()
