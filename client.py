@@ -1,10 +1,19 @@
-# to start: $ python client.py
+import random
+import time
 
 import Pyro5.api
 
-import server
+uri = input("Insert server uri: ").strip()
 
-name = input("What is your name? ").strip()
+matrix_processor = Pyro5.api.Proxy(uri)
 
-greeting_maker = Pyro5.api.Proxy(server.uri)  # get a Pyro proxy to the greeting object
-print(greeting_maker.get_fortune(name))  # call method normally
+
+def process_by_random():
+    while True:
+        time.sleep(random.randint(8, 15))
+        print("Processing input...")
+        matrix_processor.process_input()
+        print("Processing done. Saving output files")
+
+
+process_by_random()
