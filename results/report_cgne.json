@@ -69,5 +69,27 @@
         "signType": "G-1",
         "algorithm": "cgne",
         "cpu": 17.1
+    },
+    {
+        "userName": "user b",
+        "iterations": 2,
+        "runTime": 25.306503772735596,
+        "error": 0.00016902842640887514,
+        "memory": 238.395392,
+        "matrix": "2",
+        "signType": "G-1",
+        "algorithm": "cgne",
+        "cpu": 100.0
+    },
+    {
+        "userName": "user a",
+        "iterations": 2,
+        "runTime": 168.05560970306396,
+        "error": 0.00018590006846200686,
+        "memory": 1471.844352,
+        "matrix": "1",
+        "signType": "G-1",
+        "algorithm": "cgne",
+        "cpu": 100.0
     }
 ]
