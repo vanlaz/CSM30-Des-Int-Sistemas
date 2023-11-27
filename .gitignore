@@ -1,5 +1,7 @@
 *.csv
 *.npy
 *.png
+results/
+__pycache__/
 venv/
-.idea
+.idea 

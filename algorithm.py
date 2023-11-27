@@ -10,20 +10,7 @@ import cv2 as cv
 from helpers.utils import image_reshape, processing_requirements
 
 
-def monitor_cpu_usage():
-    global v
-    global max_cpu_usage
-
-    v = True
-    max_cpu_usage = 0
-
-    cpu_usage_list_by_second = []
-    while v:
-        cpu_usage_list_by_second.append(psutil.cpu_percent(interval=0.25))
-    max_cpu_usage = max(cpu_usage_list_by_second)
-
-
-def export_results(image, matrix_type, start_time, user, count, erro, signal_type, algorithm):
+def export_results(image, matrix_type, start_time, user, count, error, signal_type, algorithm, req_count):
     image = image_reshape(image, matrix_type)
     process = psutil.Process()
     memory = process.memory_info().rss / 1000000
@@ -37,7 +24,7 @@ def export_results(image, matrix_type, start_time, user, count, erro, signal_typ
         "userName": user,
         "iterations": count,
         "runTime": run_time,
-        "error": erro,
+        "error": error,
         "memory": memory,
         "matrix": matrix_type,
         "signType": signal_type,
@@ -62,10 +49,9 @@ def export_results(image, matrix_type, start_time, user, count, erro, signal_typ
 
     memory = process.memory_info().rss / 1000000
     final = cv.resize(image, None, fx=10, fy=10, interpolation=cv.INTER_AREA)
-    cv.imwrite(f'./results/{algorithm}_result.png', final)
+    cv.imwrite(f'./results/{algorithm}_result_{req_count}.png', final)
 
-
-def cgne(matrix_type, signal_type, user, algorithm):
+def cgne(matrix_type, signal_type, user, algorithm, req_count):
     global max_cpu_usage
     global v
     start_time = time.time()
@@ -107,10 +93,9 @@ def cgne(matrix_type, signal_type, user, algorithm):
     v = False
     time.sleep(0.25)
 
-    export_results(image, matrix_type, start_time, user, count, error, signal_type, algorithm)
+    export_results(image, matrix_type, start_time, user, count, error, signal_type, algorithm, req_count)
 
-
-def cgnr(matrix_type, signal_type, user, algorithm):
+def cgnr(matrix_type, signal_type, user, algorithm, req_count):
     global max_cpu_usage
     global v
     start_time = time.time()
@@ -126,8 +111,8 @@ def cgnr(matrix_type, signal_type, user, algorithm):
 
     count = 1
     error = 0
-    while error < float(1e10 ** (-4)):
-        print("executing CGNR")
+    while error < 1e10**(-4):
+        print("foi no cgnr linha 177")
 
         # wi=Hpi
         w = np.matmul(matrix, p)
@@ -152,12 +137,51 @@ def cgnr(matrix_type, signal_type, user, algorithm):
 
         # ϵ=||ri+1||2−||ri||2
         error = np.linalg.norm(ri, ord=2) - np.linalg.norm(entry_sign, ord=2)
-        if error < 1e10 ** (-4):
+        if error < 1e10**(-4):
             break
 
         count += 1
 
-    export_results(image, matrix_type, start_time, user, count, error, signal_type, algorithm)
+    image = image_reshape(image, matrix_type)
+    process = psutil.Process()
+    memory = process.memory_info().rss / 1000000
+    run_time = time.time() - start_time
+
+    v = False
+
+    time.sleep(0.2)
+
+    data = {
+        "userName": user,
+        "iterations": count,
+        "runTime": run_time,
+        "error": error,
+        "memory": memory,
+        "matrix": matrix_type,
+        "signType": signal_type,
+        "algorithm": algorithm,
+        "cpu": max_cpu_usage,
+    }
+    print(data)
+    filename = './results/report_cgnr.json'
+    listObj = []
+
+    # Read JSON file
+    with open(filename) as fp:
+        listObj = json.load(fp)
+
+
+    listObj.append(data)
+
+    with open(filename, 'w') as json_file:
+        json.dump(listObj, json_file, 
+                            indent=4,  
+                            separators=(',',': '))
+
+
+    memory = process.memory_info().rss / 1000000
+    final = cv.resize(image, None, fx=10, fy=10, interpolation=cv.INTER_AREA)
+    cv.imwrite(f'./results/cgnr_result_{req_count}.png', final)
 
 
 def random_params_to_execute():
@@ -182,28 +206,40 @@ def random_params_to_execute():
 
     return random_params
 
+def monitor_cpu_usage():
+    global v
+    global max_cpu_usage
 
-def execute_algorithm():
+    v = True
+    max_cpu_usage = 0
+
+    cpu_usage_list_by_second = []
+    while v:
+        cpu_usage_list_by_second.append(psutil.cpu_percent(interval=0.25))
+    max_cpu_usage = max(cpu_usage_list_by_second)
+
+def execute_algorithm(req_count):
     thread_cpu = threading.Thread(target=monitor_cpu_usage)
     thread_cpu.start()
 
-    choices = random_params_to_execute()
+    algorithms = ['cgnr', 'cgne']
+    algorithm = random.choice(algorithms)
 
-    if choices["algorithm"] == 'cgne':
-        thread_alg = threading.Thread(
-            target=cgne,
-            args=(choices["matrix_type"],
-                  choices["signal_type"],
-                  choices["user"],
-                  choices["algorithm"]))
+    matrixes = ['1', '2']
+    matrix_type = random.choice(matrixes)
+
+    signals = ['G-1', 'G-2', 'G-3']
+    signal_type = random.choice(signals)
+
+    users = ['user a', 'user b', 'user c']
+    user = random.choice(users)
+
+    if algorithm == 'cgne':
+        thread_alg = threading.Thread(target=cgne, args=(matrix_type, signal_type, user, algorithm, req_count))
         thread_alg.start()
     else:
-        thread_alg = threading.Thread(
-            target=cgnr,
-            args=(choices["matrix_type"],
-                  choices["signal_type"],
-                  choices["user"],
-                  choices["algorithm"]))
+        thread_alg = threading.Thread(target=cgnr, args=(matrix_type, signal_type, user, algorithm, req_count))
+
         thread_alg.start()
 
     thread_alg.join()

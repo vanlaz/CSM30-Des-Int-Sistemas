@@ -33,6 +33,8 @@ def processing_requirements(matrix_type, signal_type):
     model_path = "model_2"
     if matrix_type == "1":
         model_path = "model_1"
+    print(f"Model path: {model_path}")
+    print(f"Signal type: {signal_type}")
     file = open(f'./input/{model_path}/{signal_type}.csv', 'rb')
     entry_sign = np.loadtxt(file, delimiter=',')
     matrix = open(f'./input/{model_path}/H.csv', 'rb')
