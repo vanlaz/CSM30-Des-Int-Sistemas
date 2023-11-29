@@ -222,23 +222,24 @@ def execute_algorithm(req_count):
     thread_cpu = threading.Thread(target=monitor_cpu_usage)
     thread_cpu.start()
 
-    algorithms = ['cgnr', 'cgne']
-    algorithm = random.choice(algorithms)
+    random_params = random_params_to_execute()
+    args = (
+                random_params["matrix_type"], 
+                random_params["signal_type"], 
+                random_params["user"], 
+                random_params["algorithm"], 
+                req_count
+            )
 
-    matrixes = ['1', '2']
-    matrix_type = random.choice(matrixes)
-
-    signals = ['G-1', 'G-2', 'G-3']
-    signal_type = random.choice(signals)
-
-    users = ['user a', 'user b', 'user c']
-    user = random.choice(users)
-
-    if algorithm == 'cgne':
-        thread_alg = threading.Thread(target=cgne, args=(matrix_type, signal_type, user, algorithm, req_count))
+    if random_params["algorithm"] == 'cgne':
+        thread_alg = threading.Thread(
+            target=cgne, 
+            args=(args))
         thread_alg.start()
     else:
-        thread_alg = threading.Thread(target=cgnr, args=(matrix_type, signal_type, user, algorithm, req_count))
+        thread_alg = threading.Thread(
+            target=cgnr, 
+            args=(args))
 
         thread_alg.start()
 

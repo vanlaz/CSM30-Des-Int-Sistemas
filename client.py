@@ -1,25 +1,42 @@
 import random
 import time
-
+import json
 import Pyro5.api
 import multiprocessing
 
 def producer(queue):
     req_count = 0
     while True:
-        time.sleep(random.randint(5, 10))
+        #time.sleep(random.randint(0, 1))
         req_count += 1
         queue.put(req_count)
     
+def average_cpu_usage_by_reports():
+    with open("results/report_cgne.json") as file:
+        dict_data = json.load(file)
+        for value in dict_data:
+            cpu_list = []
+            cpu_list.append(value["cpu"])
+        avarege = sum(cpu_list) / len(cpu_list)
+    
+    with open("results/report_cgnr.json") as file:
+        dict_data = json.load(file)
+        for value in dict_data:
+            cpu_list = []
+            cpu_list.append(value["cpu"])
+        avarege_cgnr = sum(cpu_list) / len(cpu_list)
+
+    return (avarege+avarege_cgnr)/2
+
 
 def consumer(queue, matrix_processor):
     while True:
         item = queue.get()
         print(item)
-        #TODO check cpu usage
-        if item is not None:
+        average_cpu = average_cpu_usage_by_reports()
+        if item is not None and ((100-10-average_cpu) > 0):
             print("Processing input...")
-            matrix_processor.process_input(item)            
+            print(matrix_processor.process_input(item))            
             print("Processing done. Saving output files")
 
 
