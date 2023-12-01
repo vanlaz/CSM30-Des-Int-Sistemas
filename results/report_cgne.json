@@ -553,5 +553,203 @@
         "signType": "G-3",
         "algorithm": "cgne",
         "cpu": 42.5
+    },
+    {
+        "userName": "user c",
+        "iterations": 1,
+        "runTime": 4.389979839324951,
+        "error": -10082820.609964201,
+        "memory": 224.636928,
+        "matrix": "2",
+        "signType": "G-3",
+        "algorithm": "cgne",
+        "cpu": 34.6
+    },
+    {
+        "userName": "user b",
+        "iterations": 2,
+        "runTime": 4.256790637969971,
+        "error": 0.00018030672904257905,
+        "memory": 259.50208,
+        "matrix": "2",
+        "signType": "G-2",
+        "algorithm": "cgne",
+        "cpu": 33.5
+    },
+    {
+        "userName": "user b",
+        "iterations": 2,
+        "runTime": 28.4787175655365,
+        "error": 0.00018590006846200686,
+        "memory": 1476.980736,
+        "matrix": "1",
+        "signType": "G-1",
+        "algorithm": "cgne",
+        "cpu": 66.4
+    },
+    {
+        "userName": "user b",
+        "iterations": 1,
+        "runTime": 4.515904426574707,
+        "error": -10082820.609964201,
+        "memory": 218.46016,
+        "matrix": "2",
+        "signType": "G-3",
+        "algorithm": "cgne",
+        "cpu": 32.8
+    },
+    {
+        "userName": "user c",
+        "iterations": 2,
+        "runTime": 4.114572525024414,
+        "error": 0.00016902842640887514,
+        "memory": 218.304512,
+        "matrix": "2",
+        "signType": "G-1",
+        "algorithm": "cgne",
+        "cpu": 23.2
+    },
+    {
+        "userName": "user b",
+        "iterations": 1,
+        "runTime": 23.991734266281128,
+        "error": -27457.691860373343,
+        "memory": 1523.195904,
+        "matrix": "1",
+        "signType": "G-3",
+        "algorithm": "cgne",
+        "cpu": 49.8
+    },
+    {
+        "userName": "user a",
+        "iterations": 1,
+        "runTime": 4.625577926635742,
+        "error": -10082820.609964201,
+        "memory": 259.895296,
+        "matrix": "2",
+        "signType": "G-3",
+        "algorithm": "cgne",
+        "cpu": 33.0
+    },
+    {
+        "userName": "user b",
+        "iterations": 2,
+        "runTime": 3.6299822330474854,
+        "error": 0.00016902842640887514,
+        "memory": 260.325376,
+        "matrix": "2",
+        "signType": "G-1",
+        "algorithm": "cgne",
+        "cpu": 36.7
+    },
+    {
+        "userName": "user c",
+        "iterations": 2,
+        "runTime": 27.474831581115723,
+        "error": 0.0003893255430061443,
+        "memory": 1478.61504,
+        "matrix": "1",
+        "signType": "G-2",
+        "algorithm": "cgne",
+        "cpu": 60.2
+    },
+    {
+        "userName": "user a",
+        "iterations": 1,
+        "runTime": 4.244209289550781,
+        "error": -10082820.609964201,
+        "memory": 220.598272,
+        "matrix": "2",
+        "signType": "G-3",
+        "algorithm": "cgne",
+        "cpu": 27.0
+    },
+    {
+        "userName": "user a",
+        "iterations": 2,
+        "runTime": 25.22850251197815,
+        "error": 0.0003893255430061443,
+        "memory": 1521.041408,
+        "matrix": "1",
+        "signType": "G-2",
+        "algorithm": "cgne",
+        "cpu": 39.1
+    },
+    {
+        "userName": "user a",
+        "iterations": 2,
+        "runTime": 23.85684895515442,
+        "error": 0.0003893255430061443,
+        "memory": 1522.331648,
+        "matrix": "1",
+        "signType": "G-2",
+        "algorithm": "cgne",
+        "cpu": 39.2
+    },
+    {
+        "userName": "user b",
+        "iterations": 1,
+        "runTime": 4.240620374679565,
+        "error": -10082820.609964201,
+        "memory": 259.301376,
+        "matrix": "2",
+        "signType": "G-3",
+        "algorithm": "cgne",
+        "cpu": 22.4
+    },
+    {
+        "userName": "user b",
+        "iterations": 2,
+        "runTime": 25.445910215377808,
+        "error": 0.0003893255430061443,
+        "memory": 1523.11808,
+        "matrix": "1",
+        "signType": "G-2",
+        "algorithm": "cgne",
+        "cpu": 51.7
+    },
+    {
+        "userName": "user b",
+        "iterations": 2,
+        "runTime": 4.2116453647613525,
+        "error": 0.00016902842640887514,
+        "memory": 259.985408,
+        "matrix": "2",
+        "signType": "G-1",
+        "algorithm": "cgne",
+        "cpu": 22.8
+    },
+    {
+        "userName": "user b",
+        "iterations": 1,
+        "runTime": 3.756490468978882,
+        "error": -10082820.609964201,
+        "memory": 260.050944,
+        "matrix": "2",
+        "signType": "G-3",
+        "algorithm": "cgne",
+        "cpu": 20.1
+    },
+    {
+        "userName": "user c",
+        "iterations": 2,
+        "runTime": 3.7714507579803467,
+        "error": 0.00018030672904257905,
+        "memory": 260.067328,
+        "matrix": "2",
+        "signType": "G-2",
+        "algorithm": "cgne",
+        "cpu": 28.4
+    },
+    {
+        "userName": "user c",
+        "iterations": 2,
+        "runTime": 3.713073492050171,
+        "error": 0.00018030672904257905,
+        "memory": 259.91168,
+        "matrix": "2",
+        "signType": "G-2",
+        "algorithm": "cgne",
+        "cpu": 16.9
     }
 ]

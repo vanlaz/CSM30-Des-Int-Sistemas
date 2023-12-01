@@ -36,10 +36,11 @@ def export_results(image, matrix_type, start_time, user, count, error, signal_ty
     filename = f'./results/report_{algorithm}.json'
     listObj = []
 
-    # Read JSON file
+    #read json file
     with open(filename) as fp:
         listObj = json.load(fp)
 
+    #add data to json file
     listObj.append(data)
 
     with open(filename, 'w') as json_file:
@@ -66,7 +67,7 @@ def cgne(matrix_type, signal_type, user, algorithm, req_count):
 
     count = 1
     error = 0
-    while error < float(1e10 ** (-4)):
+    while error < 1e10**(-4):
         print("executing CGNE")
         # αi=rTiripTipi
         alpha = np.dot(entry_sign.T, entry_sign) / np.dot(p.T, p)
@@ -78,8 +79,8 @@ def cgne(matrix_type, signal_type, user, algorithm, req_count):
         ri = entry_sign - alpha * np.dot(matrix, p)
 
         # ϵ=||ri+1||2−||ri||2
-        error += np.linalg.norm(entry_sign, ord=2) - np.linalg.norm(ri, ord=2)
-        if error < (1e10 ** (-4)):
+        error = np.linalg.norm(entry_sign, ord=2) - np.linalg.norm(ri, ord=2)
+        if error < 1e10**(-4):
             break
 
         # βi=rTi+1ri+1rTiri
