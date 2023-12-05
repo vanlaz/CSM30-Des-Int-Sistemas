@@ -751,5 +751,82 @@
         "signType": "G-2",
         "algorithm": "cgne",
         "cpu": 16.9
+    },
+    {
+        "userName": "user c",
+        "iterations": 2,
+        "runTime": 16.322116374969482,
+        "error": 0.0003893255430061443,
+        "memory": 1521.061888,
+        "matrix": "1",
+        "signType": "G-2",
+        "algorithm": "cgne",
+        "cpu": 79.1
+    },
+    {
+        "userName": "user a",
+        "iterations": 2,
+        "runTime": 2.59464693069458,
+        "error": 0.00016902842640887514,
+        "memory": 257.572864,
+        "matrix": "2",
+        "signType": "G-1",
+        "algorithm": "cgne",
+        "cpu": 22.0
+    },
+    {
+        "userName": "user a",
+        "iterations": 2,
+        "runTime": 2.582249641418457,
+        "error": 0.00018030672904257905,
+        "memory": 258.097152,
+        "matrix": "2",
+        "signType": "G-2",
+        "algorithm": "cgne",
+        "cpu": 28.5
+    },
+    {
+        "userName": "user c",
+        "iterations": 1,
+        "runTime": 2.684114456176758,
+        "error": -10082820.609964201,
+        "memory": 257.8432,
+        "matrix": "2",
+        "signType": "G-3",
+        "algorithm": "cgne",
+        "cpu": 22.4
+    },
+    {
+        "userName": "user c",
+        "iterations": 2,
+        "runTime": 16.043488025665283,
+        "error": 0.0003893255430061443,
+        "memory": 1520.922624,
+        "matrix": "1",
+        "signType": "G-2",
+        "algorithm": "cgne",
+        "cpu": 77.2
+    },
+    {
+        "userName": "user a",
+        "iterations": 1,
+        "runTime": 2.572998046875,
+        "error": -10082820.609964201,
+        "memory": 259.022848,
+        "matrix": "2",
+        "signType": "G-3",
+        "algorithm": "cgne",
+        "cpu": 26.7
+    },
+    {
+        "userName": "user b",
+        "iterations": 2,
+        "runTime": 2.6192541122436523,
+        "error": 0.00016902842640887514,
+        "memory": 259.100672,
+        "matrix": "2",
+        "signType": "G-1",
+        "algorithm": "cgne",
+        "cpu": 28.6
     }
 ]

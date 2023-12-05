@@ -185,28 +185,6 @@ def cgnr(matrix_type, signal_type, user, algorithm, req_count):
     cv.imwrite(f'./results/cgnr_result_{req_count}.png', final)
 
 
-def random_params_to_execute():
-    algorithms = ['cgne', 'cgnr']
-    algorithm = random.choice(algorithms)
-
-    matrices = ['1', '2']
-    matrix_type = random.choice(matrices)
-
-    signals = ['G-1', 'G-2', 'G-3']
-    signal_type = random.choice(signals)
-
-    users = ['user a', 'user b', 'user c']
-    user = random.choice(users)
-
-    random_params = {
-        "algorithm": algorithm,
-        "matrix_type": matrix_type,
-        "signal_type": signal_type,
-        "user": user,
-    }
-
-    return random_params
-
 def monitor_cpu_usage():
     global v
     global max_cpu_usage
@@ -219,17 +197,16 @@ def monitor_cpu_usage():
         cpu_usage_list_by_second.append(psutil.cpu_percent(interval=0.25))
     max_cpu_usage = max(cpu_usage_list_by_second)
 
-def execute_algorithm(req_count):
+def execute_algorithm(random_params):
     thread_cpu = threading.Thread(target=monitor_cpu_usage)
     thread_cpu.start()
 
-    random_params = random_params_to_execute()
     args = (
                 random_params["matrix_type"], 
                 random_params["signal_type"], 
                 random_params["user"], 
                 random_params["algorithm"], 
-                req_count
+                random_params["req_count"]
             )
 
     if random_params["algorithm"] == 'cgne':

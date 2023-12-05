@@ -3117,5 +3117,60 @@
         "signType": "G-3",
         "algorithm": "cgnr",
         "cpu": 24.9
+    },
+    {
+        "userName": "user a",
+        "iterations": 1,
+        "runTime": 17.31708335876465,
+        "error": -0.00022750944959795683,
+        "memory": 1521.17248,
+        "matrix": "1",
+        "signType": "G-1",
+        "algorithm": "cgnr",
+        "cpu": 66.8
+    },
+    {
+        "userName": "user c",
+        "iterations": 1,
+        "runTime": 3.0036442279815674,
+        "error": -0.00018252408081796217,
+        "memory": 259.100672,
+        "matrix": "2",
+        "signType": "G-1",
+        "algorithm": "cgnr",
+        "cpu": 32.4
+    },
+    {
+        "userName": "user c",
+        "iterations": 1,
+        "runTime": 2.2728583812713623,
+        "error": -0.00019901779096381006,
+        "memory": 256.991232,
+        "matrix": "2",
+        "signType": "G-2",
+        "algorithm": "cgnr",
+        "cpu": 29.0
+    },
+    {
+        "userName": "user b",
+        "iterations": 1,
+        "runTime": 2.4947478771209717,
+        "error": -521919.63209689595,
+        "memory": 257.789952,
+        "matrix": "2",
+        "signType": "G-3",
+        "algorithm": "cgnr",
+        "cpu": 24.1
+    },
+    {
+        "userName": "user c",
+        "iterations": 1,
+        "runTime": 2.283261775970459,
+        "error": -0.00018252408081796217,
+        "memory": 259.15392,
+        "matrix": "2",
+        "signType": "G-1",
+        "algorithm": "cgnr",
+        "cpu": 34.3
     }
 ]
