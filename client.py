@@ -1,5 +1,6 @@
 import random
 import Pyro5.api
+import time
 
 from queue_handler import consumer, handle_queue
 
@@ -27,12 +28,12 @@ def random_params_to_execute(req_count):
 
     return random_params
 
-#sends new matrix to queue every second
+#sends new matrix to queue
 def producer(queue):
     req_count = 0
     while True:
         random_params = random_params_to_execute(req_count)
-        #time.sleep(random.randint(0, 1))
+        time.sleep(random.randint(0, 3))
         req_count += 1
         queue.put(random_params)
 

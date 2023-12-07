@@ -1,7 +1,7 @@
 # S - Número de amostras do sinal,  N - Número de elementos sensores
 import numpy as np
 
-
+#TODO: transform entry sign in vector
 def signal_gain(matrix_type):
     N = 64
     S1 = 794
@@ -11,10 +11,10 @@ def signal_gain(matrix_type):
         S = S1
 
     gl = 0
-    for c in range(0, S):
-        for l in range(0, N):
-            gamma = 100 + (1 / 20) * l * (l ** 0.5)
-            gl, c = gl, c * gamma
+    for i in range(0, S):
+        for j in range(0, N):
+            gamma = 100 + (1 / 20) * j * (j ** 0.5)
+            vector[i][j] *= gamma 
     return S
 
 

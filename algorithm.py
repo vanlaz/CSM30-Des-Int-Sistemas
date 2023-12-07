@@ -29,7 +29,7 @@ def export_results(image, matrix_type, start_time, user, count, error, signal_ty
         "matrix": matrix_type,
         "signType": signal_type,
         "algorithm": algorithm,
-        "cpu": max_cpu_usage,
+        "cpu": avr_cpu_usage,
     }
     print(f'Result: `{data}')
     print(algorithm)
@@ -53,7 +53,7 @@ def export_results(image, matrix_type, start_time, user, count, error, signal_ty
     cv.imwrite(f'./results/{algorithm}_result_{req_count}.png', final)
 
 def cgne(matrix_type, signal_type, user, algorithm, req_count):
-    global max_cpu_usage
+    global avr_cpu_usage
     global v
     start_time = time.time()
 
@@ -65,10 +65,10 @@ def cgne(matrix_type, signal_type, user, algorithm, req_count):
     # f0=0
     image = np.zeros_like(len(p))
 
-    count = 1
-    error = 0
-    while error < 1e10**(-4):
-        print("executing CGNE")
+    count = 1    
+    for i in range(30):
+        print(f"[Iteração {i + 1}]")
+        print("executando CGNE")
         # αi=rTiripTipi
         alpha = np.dot(entry_sign.T, entry_sign) / np.dot(p.T, p)
 
@@ -80,7 +80,8 @@ def cgne(matrix_type, signal_type, user, algorithm, req_count):
 
         # ϵ=||ri+1||2−||ri||2
         error = np.linalg.norm(entry_sign, ord=2) - np.linalg.norm(ri, ord=2)
-        if error < 1e10**(-4):
+        abs_error = abs(error)
+        if abs_error < 1e-4:
             break
 
         # βi=rTi+1ri+1rTiri
@@ -97,7 +98,7 @@ def cgne(matrix_type, signal_type, user, algorithm, req_count):
     export_results(image, matrix_type, start_time, user, count, error, signal_type, algorithm, req_count)
 
 def cgnr(matrix_type, signal_type, user, algorithm, req_count):
-    global max_cpu_usage
+    global avr_cpu_usage
     global v
     start_time = time.time()
 
@@ -111,9 +112,10 @@ def cgnr(matrix_type, signal_type, user, algorithm, req_count):
     image = np.zeros_like(len(p))
 
     count = 1
-    error = 0
-    while error < 1e10**(-4):
-        print("foi no cgnr linha 177")
+    
+    for i in range(30):
+        print(f"[Iteração {i + 1}]")
+        print("executando CGNE")
 
         # wi=Hpi
         w = np.matmul(matrix, p)
@@ -138,7 +140,8 @@ def cgnr(matrix_type, signal_type, user, algorithm, req_count):
 
         # ϵ=||ri+1||2−||ri||2
         error = np.linalg.norm(ri, ord=2) - np.linalg.norm(entry_sign, ord=2)
-        if error < 1e10**(-4):
+        abs_error = abs(error)
+        if abs_error < 1e-4:
             break
 
         count += 1
@@ -161,7 +164,7 @@ def cgnr(matrix_type, signal_type, user, algorithm, req_count):
         "matrix": matrix_type,
         "signType": signal_type,
         "algorithm": algorithm,
-        "cpu": max_cpu_usage,
+        "cpu": avr_cpu_usage,
     }
     print(data)
     filename = './results/report_cgnr.json'
@@ -187,15 +190,15 @@ def cgnr(matrix_type, signal_type, user, algorithm, req_count):
 
 def monitor_cpu_usage():
     global v
-    global max_cpu_usage
+    global avr_cpu_usage
 
     v = True
-    max_cpu_usage = 0
+    avr_cpu_usage = 0
 
     cpu_usage_list_by_second = []
     while v:
         cpu_usage_list_by_second.append(psutil.cpu_percent(interval=0.25))
-    max_cpu_usage = max(cpu_usage_list_by_second)
+    avr_cpu_usage = np.average(cpu_usage_list_by_second)
 
 def execute_algorithm(random_params):
     thread_cpu = threading.Thread(target=monitor_cpu_usage)

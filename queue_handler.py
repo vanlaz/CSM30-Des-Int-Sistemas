@@ -5,6 +5,8 @@ def consumer(queue, server):
     while True:
         item = queue.get()
         print(item)
+        #average_m1 = server.average_cpu_usage_by_matrix()
+        #print(f'CPU usage average for matrix 1: {average_m1}')
         average_cpu = server.average_cpu_usage_by_reports()
         print (f"Uso médio de CPU: {average_cpu}(%)")
         if item is not None and ((100-10-average_cpu) > 0):
