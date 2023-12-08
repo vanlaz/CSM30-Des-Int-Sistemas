@@ -15,17 +15,17 @@ def consumer(queue, server):
 
         matrix_type = random_params["matrix_type"]
 
-        ram_available = round(psutil.virtual_memory().free / (1024.0 ** 3), 2)
+        #ram_available = round(psutil.virtual_memory().free / (1024.0 ** 3), 2)
         cpu_available = 100 - psutil.cpu_percent(interval=3)    
 
         if random_params is not None:
             if matrix_type == "1":
-                if ((cpu_data_by_matrix["average_cpu_m1"] + 10) < cpu_available) and ((ram_data_by_matrix["average_ram_m1"]) < 12):
+                if ((cpu_data_by_matrix["average_cpu_m1"] + 10) < cpu_available) and ((ram_data_by_matrix["average_ram_m1"]) < 16):
                     print("Processing input from matrix 1...")
                     print(server.process_input(random_params))            
                     print("Processing matrix 1 done. Saving output files")
             else:
-                if ((cpu_data_by_matrix["average_cpu_m2"] + 10) < cpu_available) and ((ram_data_by_matrix["average_ram_m2"]) < 12):
+                if ((cpu_data_by_matrix["average_cpu_m2"] + 10) < cpu_available) and ((ram_data_by_matrix["average_ram_m2"]) < 16):
                     print("Processing input from matrix 2...")
                     print(server.process_input(random_params))            
                     print("Processing matrix 2 done. Saving output files")

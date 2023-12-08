@@ -10,7 +10,7 @@ import cv2 as cv
 from helpers.utils import image_reshape, processing_requirements
 
 
-def export_results(image, matrix_type, start_time, user, count, abs_error, signal_type, algorithm, req_count):
+def export_results(image, matrix_type, start_time, user, count, abs_error, signal_type, signal_gain, algorithm, req_count):
     image = image_reshape(image, matrix_type)
     process = psutil.Process()
     run_time = time.time() - start_time
@@ -23,16 +23,18 @@ def export_results(image, matrix_type, start_time, user, count, abs_error, signa
         "userName": user,
         "iterations": count,
         "runTime": run_time,
+        "startTime": start_time,
+        "endTime": time.time(),
         "error": abs_error,
         "matrix": matrix_type,
         "signType": signal_type,
+        "signGain": signal_gain,
         "algorithm": algorithm,
         "cpu (%)": avr_cpu_usage,
         "ram_usage (GB)": avr_ram_usage,
         "ram_available (GB)": avr_ram_available
     }
     print(f'Result: `{data}')
-    print(algorithm)
     filename = f'./results/report_{algorithm}.json'
     listObj = []
 
@@ -51,14 +53,14 @@ def export_results(image, matrix_type, start_time, user, count, abs_error, signa
     final = cv.resize(image, None, fx=10, fy=10, interpolation=cv.INTER_AREA)
     cv.imwrite(f'./results/{algorithm}_result_{req_count}.png', final)
 
-def cgne(matrix_type, signal_type, user, algorithm, req_count):
+def cgne(matrix_type, signal_type, signal_gain, user, algorithm, req_count):
     global avr_cpu_usage
     global avr_ram_available
     global avr_ram_used
     global v
     start_time = time.time()
 
-    entry_sign, matrix = processing_requirements(matrix_type, signal_type)
+    entry_sign, matrix = processing_requirements(matrix_type, signal_type, signal_gain)
 
     # p0=HTr0
     p = np.matmul(matrix.T, entry_sign)
@@ -97,18 +99,17 @@ def cgne(matrix_type, signal_type, user, algorithm, req_count):
         count += 1
 
     v = False
-    time.sleep(0.25)
 
-    export_results(image, matrix_type, start_time, user, count, abs_error, signal_type, algorithm, req_count)
+    export_results(image, matrix_type, start_time, user, count, abs_error, signal_type, signal_gain, algorithm, req_count)
 
-def cgnr(matrix_type, signal_type, user, algorithm, req_count):
+def cgnr(matrix_type, signal_type, signal_gain, user, algorithm, req_count):
     global avr_cpu_usage
     global avr_ram_usage
     global avr_ram_available
     global v
     start_time = time.time()
 
-    entry_sign, matrix = processing_requirements(matrix_type, signal_type)
+    entry_sign, matrix = processing_requirements(matrix_type, signal_type, signal_gain)
 
     # z0=HTr0
     p = np.matmul(matrix.T, entry_sign)
@@ -155,43 +156,11 @@ def cgnr(matrix_type, signal_type, user, algorithm, req_count):
         count += 1
 
     image = image_reshape(image, matrix_type)
-    process = psutil.Process()
     run_time = round(time.time() - start_time, 2)
 
     v = False
 
-    time.sleep(0.2)
-
-    data = {
-        "userName": user,
-        "iterations": count,
-        "runTime": run_time,
-        "error": abs_error,
-        "matrix": matrix_type,
-        "signType": signal_type,
-        "algorithm": algorithm,
-        "cpu (%)": avr_cpu_usage,
-        "ram_usage (GB)": avr_ram_usage,
-        "ram_available (GB)": avr_ram_available
-    }
-    print(data)
-    filename = './results/report_cgnr.json'
-    listObj = []
-
-    # Read JSON file
-    with open(filename) as fp:
-        listObj = json.load(fp)
-
-
-    listObj.append(data)
-
-    with open(filename, 'w') as json_file:
-        json.dump(listObj, json_file, 
-                            indent=4,  
-                            separators=(',',': '))
-
-    final = cv.resize(image, None, fx=10, fy=10, interpolation=cv.INTER_AREA)
-    cv.imwrite(f'./results/cgnr_result_{req_count}.png', final)
+    export_results(image, matrix_type, start_time, user, count, abs_error, signal_type, signal_gain, algorithm, req_count)
 
 
 def monitor_cpu_usage():
@@ -236,6 +205,7 @@ def execute_algorithm(random_params):
     args = (
                 random_params["matrix_type"], 
                 random_params["signal_type"], 
+                random_params["signal_gain"],
                 random_params["user"], 
                 random_params["algorithm"], 
                 random_params["req_count"]

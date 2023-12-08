@@ -1,56 +1,6 @@
 [
     {
         "userName": "user c",
-        "iterations": 101,
-        "runTime": 147.99241828918457,
-        "error": 10353.865158686414,
-        "memory": 259.014656,
-        "matrix": "2",
-        "signType": "G-3",
-        "algorithm": "cgnr",
-        "cpu (%)": 3.94,
-        "ram_usage (GB)": 10.79,
-        "ram_available (GB)": 5.05
-    },
-    {
-        "userName": "user c",
-        "iterations": 101,
-        "runTime": 147.99241828918457,
-        "error": 10353.865158686414,
-        "memory": 259.014656,
-        "matrix": "1",
-        "signType": "G-3",
-        "algorithm": "cgnr",
-        "cpu (%)": 3.94,
-        "ram_usage (GB)": 9.79,
-        "ram_available (GB)": 5.05
-    },
-    {
-        "userName": "user a",
-        "iterations": 2,
-        "runTime": 27.139033555984497,
-        "error": 3.484055313265682e-05,
-        "matrix": "2",
-        "signType": "G-1",
-        "algorithm": "cgnr",
-        "cpu (%)": 9.36,
-        "ram_usage (GB)": 10.03,
-        "ram_available (GB)": 4.66
-    },
-    {
-        "userName": "user c",
-        "iterations": 2,
-        "runTime": 83.2,
-        "error": 6.277707631943593e-05,
-        "matrix": "1",
-        "signType": "G-1",
-        "algorithm": "cgnr",
-        "cpu (%)": 0,
-        "ram_usage (GB)": 11.45,
-        "ram_available (GB)": 4.25
-    },
-    {
-        "userName": "user c",
         "iterations": 2,
         "runTime": 11.49,
         "error": 3.484055313265682e-05,
@@ -72,5 +22,70 @@
         "cpu (%)": 0,
         "ram_usage (GB)": 7.09,
         "ram_available (GB)": 8.6
+    },
+    {
+        "userName": "user c",
+        "iterations": 8,
+        "runTime": 190.56,
+        "error": 8.874483302727019e-05,
+        "matrix": "1",
+        "signType": "G-2",
+        "algorithm": "cgnr",
+        "cpu (%)": 11.99,
+        "ram_usage (GB)": 13.72,
+        "ram_available (GB)": 1.98
+    },
+    {
+        "userName": "user a",
+        "iterations": 101,
+        "runTime": 54.57,
+        "error": 2812460.047511816,
+        "matrix": "1",
+        "signType": "G-3",
+        "algorithm": "cgnr",
+        "cpu (%)": 0,
+        "ram_usage (GB)": 12.57,
+        "ram_available (GB)": 3.13
+    },
+    {
+        "userName": "user a",
+        "iterations": 101,
+        "runTime": 176.55,
+        "error": 66.85642055033532,
+        "matrix": "1",
+        "signType": "G-3",
+        "signGain": false,
+        "algorithm": "cgnr",
+        "cpu (%)": 0,
+        "ram_usage (GB)": 0,
+        "ram_available (GB)": 0
+    },
+    {
+        "userName": "user b",
+        "iterations": 101,
+        "runTime": 31.696226119995117,
+        "error": 0.0006861665818247431,
+        "matrix": "2",
+        "signType": "G-1",
+        "signGain": true,
+        "algorithm": "cgnr",
+        "cpu (%)": 14.45,
+        "ram_usage (GB)": 9.45,
+        "ram_available (GB)": 6.25
+    },
+    {
+        "userName": "user b",
+        "iterations": 101,
+        "runTime": 120.48712873458862,
+        "startTime": 1702035088.3520763,
+        "endTime": 1702035209.0545022,
+        "error": 0.0036955019218744,
+        "matrix": "1",
+        "signType": "G-2",
+        "signGain": true,
+        "algorithm": "cgnr",
+        "cpu (%)": 22.8,
+        "ram_usage (GB)": 12.19,
+        "ram_available (GB)": 3.5
     }
 ]
