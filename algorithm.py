@@ -9,11 +9,13 @@ import cv2 as cv
 
 from helpers.utils import image_reshape, processing_requirements
 
+#format timestamp to a human understandable format
 def serialize_datetime(obj): 
     if isinstance(obj, datetime): 
         return obj.isoformat() 
     raise TypeError("Type not serializable") 
 
+#export result image and add execution data to the json reports
 def export_results(image, matrix_type, start_time, user, count, abs_error, signal_type, signal_gain, algorithm, req_count):
     image = image_reshape(image, matrix_type)
     process = psutil.Process()
@@ -66,7 +68,7 @@ def export_results(image, matrix_type, start_time, user, count, abs_error, signa
 def cgne(matrix_type, signal_type, signal_gain, user, algorithm, req_count):
     global avr_cpu_usage
     global avr_ram_available
-    global avr_ram_used
+    global avr_ram_usage
     global v
     start_time = time.time()
 
@@ -91,21 +93,20 @@ def cgne(matrix_type, signal_type, signal_gain, user, algorithm, req_count):
 
         # ri+1=ri−αiHpi
         ri = entry_sign - alpha * np.dot(matrix, p)
-
-        # ϵ=||ri+1||2−||ri||2
-        error = np.linalg.norm(entry_sign, ord=2) - np.linalg.norm(ri, ord=2)
-        
-        abs_error = abs(error)
-        
-        if abs_error < 1e-4 or count > 100:
-            break
-
+       
         # βi=rTi+1ri+1rTiri
         beta = np.dot(entry_sign.T, ri) / np.dot(ri.T, entry_sign)
 
         # pi+1=HTri+1+βipi
         p = np.dot(matrix.T, ri) + beta * p
 
+         # ϵ=||ri+1||2−||ri||2
+        error = np.linalg.norm(ri, ord=2) - np.linalg.norm(entry_sign, ord=2)
+        
+        abs_error = abs(error)
+        
+        if abs_error < 1e-4 or count > 100:
+            break
         count += 1
 
     v = False
@@ -171,7 +172,6 @@ def cgnr(matrix_type, signal_type, signal_gain, user, algorithm, req_count):
     v = False
 
     export_results(image, matrix_type, start_time, user, count, abs_error, signal_type, signal_gain, algorithm, req_count)
-
 
 def monitor_cpu_usage():
     global v

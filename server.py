@@ -10,7 +10,7 @@ class MatrixProcessor(object):
         execute_algorithm(random_params)
         return "Algorithm executed"
 
-    """
+    """ #calculates average CPU usage reading from json reports
     def average_cpu_usage_by_matrix(self):
         cpu_list_1 = []
         cpu_list_2 = []
@@ -40,7 +40,7 @@ class MatrixProcessor(object):
         }
         return result
     
-
+    #calculates average RAM usage reading from json reports
     def average_ram_usage_by_matrix(self):
         ram_list_1 = []
         ram_list_2 = []

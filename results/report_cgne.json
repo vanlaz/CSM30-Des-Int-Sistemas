@@ -1,150 +1,6 @@
 [
     {
         "userName": "user c",
-        "iterations": 10,
-        "runTime": 25.548182010650635,
-        "error": 9.74806841605837e-05,
-        "matrix": "1",
-        "signType": "G-2",
-        "algorithm": "cgne",
-        "cpu (%)": 10.03,
-        "ram_usage (GB)": 13.61,
-        "ram_available (GB)": 2.08
-    },
-    {
-        "userName": "user c",
-        "iterations": 101,
-        "runTime": 80.35083889961243,
-        "error": 1828163.9933416191,
-        "matrix": "2",
-        "signType": "G-3",
-        "algorithm": "cgne",
-        "cpu (%)": 9.47,
-        "ram_usage (GB)": 14.74,
-        "ram_available (GB)": 0.95
-    },
-    {
-        "userName": "user b",
-        "iterations": 101,
-        "runTime": 36.44911456108093,
-        "error": 32011933.94351864,
-        "matrix": "2",
-        "signType": "G-3",
-        "algorithm": "cgne",
-        "cpu (%)": 11.52,
-        "ram_usage (GB)": 15.15,
-        "ram_available (GB)": 0.54
-    },
-    {
-        "userName": "user c",
-        "iterations": 101,
-        "runTime": 38.56291937828064,
-        "error": 0.0011468597280884923,
-        "matrix": "2",
-        "signType": "G-2",
-        "signGain": true,
-        "algorithm": "cgne",
-        "cpu (%)": 11.55,
-        "ram_usage (GB)": 9.54,
-        "ram_available (GB)": 6.16
-    },
-    {
-        "userName": "user c",
-        "iterations": 101,
-        "runTime": 36.57606911659241,
-        "error": 32011933.94351864,
-        "matrix": "2",
-        "signType": "G-3",
-        "signGain": true,
-        "algorithm": "cgne",
-        "cpu (%)": 11.13,
-        "ram_usage (GB)": 12.8,
-        "ram_available (GB)": 2.89
-    },
-    {
-        "userName": "user a",
-        "iterations": 101,
-        "runTime": 33.79847764968872,
-        "error": 0.0011468597280884923,
-        "matrix": "2",
-        "signType": "G-2",
-        "signGain": true,
-        "algorithm": "cgne",
-        "cpu (%)": 17.59,
-        "ram_usage (GB)": 9.93,
-        "ram_available (GB)": 5.77
-    },
-    {
-        "userName": "user b",
-        "iterations": 101,
-        "runTime": 225.41138577461243,
-        "error": 386.51639736129437,
-        "matrix": "1",
-        "signType": "G-3",
-        "signGain": false,
-        "algorithm": "cgne",
-        "cpu (%)": 23.13,
-        "ram_usage (GB)": 13.84,
-        "ram_available (GB)": 1.86
-    },
-    {
-        "userName": "user c",
-        "iterations": 101,
-        "runTime": 167.23868036270142,
-        "error": 0.0033240479248071164,
-        "matrix": "1",
-        "signType": "G-1",
-        "signGain": true,
-        "algorithm": "cgne",
-        "cpu (%)": 21.97,
-        "ram_usage (GB)": 14.6,
-        "ram_available (GB)": 1.1
-    },
-    {
-        "userName": "user c",
-        "iterations": 101,
-        "runTime": 35.505929708480835,
-        "error": 32011933.94351864,
-        "matrix": "2",
-        "signType": "G-3",
-        "signGain": true,
-        "algorithm": "cgne",
-        "cpu (%)": 0,
-        "ram_usage (GB)": 14.31,
-        "ram_available (GB)": 1.38
-    },
-    {
-        "userName": "user a",
-        "iterations": 101,
-        "runTime": 34.02349925041199,
-        "startTime": 1702035212.394565,
-        "endTime": 1702035246.6195915,
-        "error": 1828163.9933416191,
-        "matrix": "2",
-        "signType": "G-3",
-        "signGain": false,
-        "algorithm": "cgne",
-        "cpu (%)": 0,
-        "ram_usage (GB)": 14.89,
-        "ram_available (GB)": 0.8
-    },
-    {
-        "userName": "user a",
-        "iterations": 4,
-        "runTime": 105.20551371574402,
-        "startTime": 1702035249.7431116,
-        "endTime": 1702035355.1491635,
-        "error": 4.887587766658452e-05,
-        "matrix": "1",
-        "signType": "G-1",
-        "signGain": false,
-        "algorithm": "cgne",
-        "cpu (%)": 13.48,
-        "ram_usage (GB)": 14.68,
-        "ram_available (GB)": 1.02
-    },
-    {
-        "userName": "user c",
         "iterations": 101,
         "runTime": 196.7773597240448,
         "startTime": "\"2023-12-08T12:43:47.614362\"",
@@ -165,25 +21,6 @@
     {
         "userName": "user c",
         "iterations": 101,
-        "runTime": 37.94797086715698,
-        "startTime": "\"2023-12-08T12:47:40.607365\"",
-        "endTime": "\"2023-12-08T12:48:18.555336\"",
-        "error": 32011933.94351864,
-        "matrix": "2",
-        "signType": "G-3",
-        "signGain": true,
-        "algorithm": "cgne",
-        "cpu (%)": 16.41,
-        "ram_usage (GB)": 15.06,
-        "ram_available (GB)": 0.63,
-        "image_pixels": [
-            30,
-            30
-        ]
-    },
-    {
-        "userName": "user c",
-        "iterations": 101,
         "runTime": 171.1272976398468,
         "startTime": "\"2023-12-08T12:58:15.637890\"",
         "endTime": "\"2023-12-08T13:01:06.769185\"",
@@ -198,6 +35,272 @@
         "image_pixels": [
             60,
             60
+        ]
+    },
+    {
+        "userName": "user c",
+        "iterations": 101,
+        "runTime": 177.88215732574463,
+        "startTime": "\"2023-12-08T13:09:56.782870\"",
+        "endTime": "\"2023-12-08T13:12:54.665027\"",
+        "error": 0.0033240479248071164,
+        "matrix": "1",
+        "signType": "G-1",
+        "signGain": true,
+        "algorithm": "cgne",
+        "cpu (%)": 15.47,
+        "ram_usage (GB)": 12.39,
+        "ram_available (GB)": 3.31,
+        "image_pixels": [
+            60,
+            60
+        ]
+    },
+    {
+        "userName": "user a",
+        "iterations": 101,
+        "runTime": 125.9356586933136,
+        "startTime": "\"2023-12-08T13:15:05.277153\"",
+        "endTime": "\"2023-12-08T13:17:11.212811\"",
+        "error": 386.51639736129437,
+        "matrix": "1",
+        "signType": "G-3",
+        "signGain": false,
+        "algorithm": "cgne",
+        "cpu (%)": 22.41,
+        "ram_usage (GB)": 13.44,
+        "ram_available (GB)": 2.26,
+        "image_pixels": [
+            60,
+            60
+        ]
+    },
+    {
+        "userName": "user a",
+        "iterations": 101,
+        "runTime": 114.8478729724884,
+        "startTime": "\"2023-12-08T13:29:33.797790\"",
+        "endTime": "\"2023-12-08T13:31:28.646663\"",
+        "error": 0.0033240479248071164,
+        "matrix": "1",
+        "signType": "G-1",
+        "signGain": true,
+        "algorithm": "cgne",
+        "cpu (%)": 22.39,
+        "ram_usage (GB)": 13.6,
+        "ram_available (GB)": 2.1,
+        "image_pixels": [
+            60,
+            60
+        ]
+    },
+    {
+        "userName": "user b",
+        "iterations": 101,
+        "runTime": 101.22757887840271,
+        "startTime": "\"2023-12-08T14:16:29.707443\"",
+        "endTime": "\"2023-12-08T14:18:10.935022\"",
+        "error": 0.0010620986428798301,
+        "matrix": "2",
+        "signType": "G-1",
+        "signGain": true,
+        "algorithm": "cgne",
+        "cpu (%)": 10.33,
+        "ram_usage (GB)": 11.56,
+        "ram_available (GB)": 4.13,
+        "image_pixels": [
+            30,
+            30
+        ]
+    },
+    {
+        "userName": "user b",
+        "iterations": 101,
+        "runTime": 148.98842430114746,
+        "startTime": "\"2023-12-08T14:41:43.505852\"",
+        "endTime": "\"2023-12-08T14:44:12.494276\"",
+        "error": 0.006070858958520775,
+        "matrix": "1",
+        "signType": "G-2",
+        "signGain": true,
+        "algorithm": "cgne",
+        "cpu (%)": 20.81,
+        "ram_usage (GB)": 14.76,
+        "ram_available (GB)": 0.93,
+        "image_pixels": [
+            60,
+            60
+        ]
+    },
+    {
+        "userName": "user a",
+        "iterations": 10,
+        "runTime": 12.68681025505066,
+        "startTime": "\"2023-12-08T14:49:36.868664\"",
+        "endTime": "\"2023-12-08T14:49:49.555475\"",
+        "error": 9.74806841605837e-05,
+        "matrix": "2",
+        "signType": "G-2",
+        "signGain": false,
+        "algorithm": "cgne",
+        "cpu (%)": 12.62,
+        "ram_usage (GB)": 12.79,
+        "ram_available (GB)": 2.9,
+        "image_pixels": [
+            30,
+            30
+        ]
+    },
+    {
+        "userName": "user c",
+        "iterations": 101,
+        "runTime": 248.11315059661865,
+        "startTime": "\"2023-12-08T14:55:45.078354\"",
+        "endTime": "\"2023-12-08T14:59:53.191505\"",
+        "error": 0.0033240479248071164,
+        "matrix": "1",
+        "signType": "G-1",
+        "signGain": true,
+        "algorithm": "cgne",
+        "cpu (%)": 19.0,
+        "ram_usage (GB)": 13.3,
+        "ram_available (GB)": 2.39,
+        "image_pixels": [
+            60,
+            60
+        ]
+    },
+    {
+        "userName": "user c",
+        "iterations": 13,
+        "runTime": 17.889827013015747,
+        "startTime": "\"2023-12-08T15:47:44.982511\"",
+        "endTime": "\"2023-12-08T15:48:02.872338\"",
+        "error": 9.673261714526765e-05,
+        "matrix": "2",
+        "signType": "G-1",
+        "signGain": false,
+        "algorithm": "cgne",
+        "cpu (%)": 11.7,
+        "ram_usage (GB)": 11.79,
+        "ram_available (GB)": 3.9,
+        "image_pixels": [
+            30,
+            30
+        ]
+    },
+    {
+        "userName": "user a",
+        "iterations": 101,
+        "runTime": 36.28440880775452,
+        "startTime": "\"2023-12-08T15:48:06.189054\"",
+        "endTime": "\"2023-12-08T15:48:42.473463\"",
+        "error": 1828163.9933416191,
+        "matrix": "2",
+        "signType": "G-3",
+        "signGain": false,
+        "algorithm": "cgne",
+        "cpu (%)": 13.16,
+        "ram_usage (GB)": 13.44,
+        "ram_available (GB)": 2.25,
+        "image_pixels": [
+            30,
+            30
+        ]
+    },
+    {
+        "userName": "user b",
+        "iterations": 101,
+        "runTime": 36.31943941116333,
+        "startTime": "\"2023-12-08T16:04:15.414914\"",
+        "endTime": "\"2023-12-08T16:04:51.734354\"",
+        "error": 1828163.9933416191,
+        "matrix": "2",
+        "signType": "G-3",
+        "signGain": false,
+        "algorithm": "cgne",
+        "cpu (%)": 14.76,
+        "ram_usage (GB)": 8.16,
+        "ram_available (GB)": 7.53,
+        "image_pixels": [
+            30,
+            30
+        ]
+    },
+    {
+        "userName": "user c",
+        "iterations": 10,
+        "runTime": 23.49195408821106,
+        "startTime": "\"2023-12-08T16:11:08.987615\"",
+        "endTime": "\"2023-12-08T16:11:32.479569\"",
+        "error": 9.74806841605837e-05,
+        "matrix": "2",
+        "signType": "G-2",
+        "signGain": false,
+        "algorithm": "cgne",
+        "cpu (%)": 11.83,
+        "ram_usage (GB)": 7.49,
+        "ram_available (GB)": 8.21,
+        "image_pixels": [
+            30,
+            30
+        ]
+    },
+    {
+        "userName": "user b",
+        "iterations": 10,
+        "runTime": 18.65178394317627,
+        "startTime": "\"2023-12-08T16:38:35.973096\"",
+        "endTime": "\"2023-12-08T16:38:54.624880\"",
+        "error": 9.74806841605837e-05,
+        "matrix": "2",
+        "signType": "G-2",
+        "signGain": false,
+        "algorithm": "cgne",
+        "cpu (%)": 0,
+        "ram_usage (GB)": 8.36,
+        "ram_available (GB)": 7.33,
+        "image_pixels": [
+            30,
+            30
+        ]
+    },
+    {
+        "userName": "user a",
+        "iterations": 101,
+        "runTime": 33.63177561759949,
+        "startTime": "\"2023-12-08T16:39:18.644800\"",
+        "endTime": "\"2023-12-08T16:39:52.276576\"",
+        "error": 1828163.9933416191,
+        "matrix": "2",
+        "signType": "G-3",
+        "signGain": false,
+        "algorithm": "cgne",
+        "cpu (%)": 0,
+        "ram_usage (GB)": 11.33,
+        "ram_available (GB)": 4.36,
+        "image_pixels": [
+            30,
+            30
+        ]
+    },
+    {
+        "userName": "user c",
+        "iterations": 101,
+        "runTime": 31.706777095794678,
+        "startTime": "\"2023-12-08T16:39:55.533782\"",
+        "endTime": "\"2023-12-08T16:40:27.240560\"",
+        "error": 0.0011468597280884923,
+        "matrix": "2",
+        "signType": "G-2",
+        "signGain": true,
+        "algorithm": "cgne",
+        "cpu (%)": 0,
+        "ram_usage (GB)": 13.23,
+        "ram_available (GB)": 2.47,
+        "image_pixels": [
+            30,
+            30
         ]
     }
 ]

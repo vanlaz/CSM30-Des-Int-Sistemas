@@ -1,9 +1,8 @@
 import multiprocessing
 import psutil
 
-#consumes from queue based on CPU usage
+#consumes from queue based on CPU and RAM usage
 def consumer(queue, server):
-    #ram_available = 0
     cpu_available = 0
 
     while True:
@@ -15,13 +14,12 @@ def consumer(queue, server):
 
         matrix_type = random_params["matrix_type"]
 
-        average_cpu_m1 = (17.40+17.75)/2
-        average_cpu_m2 = (13.20+12.25)/2
+        average_cpu_m1 = (17.40+17.75)/2 + 5
+        average_cpu_m2 = (13.20+12.25)/2 + 5
 
-        average_ram_m1 = (12.83+14.10)/2
-        average_ram_m2 = (9.79+12+43)/2
-
-        #ram_available = round(psutil.virtual_memory().free / (1024.0 ** 3), 2)
+        average_ram_m1 = (12.83+14.10)/2 + 0.8
+        average_ram_m2 = (9.79+12.43)/2 + 0.8
+        
         cpu_available = 100 - psutil.cpu_percent(interval=3)    
 
         if matrix_type == "1":

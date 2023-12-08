@@ -6,7 +6,7 @@ from multiprocessing import Process
 
 from queue_handler import consumer, handle_queue
 
-
+#define random parameters
 def random_params_to_execute(req_count):
     algorithms = ['cgne', 'cgnr']
     algorithm = random.choice(algorithms)
@@ -42,14 +42,14 @@ def producer(queue):
         req_count += 1
         queue.put(random_params)
 
-
+"""" #start tasks for parallel processing by multiple clients                                                                            
 def run_cpu_tasks_in_parallel(tasks):
     running_tasks = [Process(target=task) for task in tasks]
     for running_task in running_tasks:
         running_task.start()
     for running_task in running_tasks:
         running_task.join()
-
+"""
 
 if __name__ == '__main__':
     uri = input("Insert server uri: ").strip()

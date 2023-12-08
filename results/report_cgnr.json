@@ -2,95 +2,6 @@
     {
         "userName": "user c",
         "iterations": 2,
-        "runTime": 11.49,
-        "error": 3.484055313265682e-05,
-        "matrix": "2",
-        "signType": "G-1",
-        "algorithm": "cgnr",
-        "cpu (%)": 12.92,
-        "ram_usage (GB)": 7.78,
-        "ram_available (GB)": 7.91
-    },
-    {
-        "userName": "user b",
-        "iterations": 101,
-        "runTime": 29.23,
-        "error": 10353.865158686414,
-        "matrix": "2",
-        "signType": "G-3",
-        "algorithm": "cgnr",
-        "cpu (%)": 0,
-        "ram_usage (GB)": 7.09,
-        "ram_available (GB)": 8.6
-    },
-    {
-        "userName": "user c",
-        "iterations": 8,
-        "runTime": 190.56,
-        "error": 8.874483302727019e-05,
-        "matrix": "1",
-        "signType": "G-2",
-        "algorithm": "cgnr",
-        "cpu (%)": 11.99,
-        "ram_usage (GB)": 13.72,
-        "ram_available (GB)": 1.98
-    },
-    {
-        "userName": "user a",
-        "iterations": 101,
-        "runTime": 54.57,
-        "error": 2812460.047511816,
-        "matrix": "1",
-        "signType": "G-3",
-        "algorithm": "cgnr",
-        "cpu (%)": 0,
-        "ram_usage (GB)": 12.57,
-        "ram_available (GB)": 3.13
-    },
-    {
-        "userName": "user a",
-        "iterations": 101,
-        "runTime": 176.55,
-        "error": 66.85642055033532,
-        "matrix": "1",
-        "signType": "G-3",
-        "signGain": false,
-        "algorithm": "cgnr",
-        "cpu (%)": 0,
-        "ram_usage (GB)": 0,
-        "ram_available (GB)": 0
-    },
-    {
-        "userName": "user b",
-        "iterations": 101,
-        "runTime": 31.696226119995117,
-        "error": 0.0006861665818247431,
-        "matrix": "2",
-        "signType": "G-1",
-        "signGain": true,
-        "algorithm": "cgnr",
-        "cpu (%)": 14.45,
-        "ram_usage (GB)": 9.45,
-        "ram_available (GB)": 6.25
-    },
-    {
-        "userName": "user b",
-        "iterations": 101,
-        "runTime": 120.48712873458862,
-        "startTime": 1702035088.3520763,
-        "endTime": 1702035209.0545022,
-        "error": 0.0036955019218744,
-        "matrix": "1",
-        "signType": "G-2",
-        "signGain": true,
-        "algorithm": "cgnr",
-        "cpu (%)": 22.8,
-        "ram_usage (GB)": 12.19,
-        "ram_available (GB)": 3.5
-    },
-    {
-        "userName": "user c",
-        "iterations": 2,
         "runTime": 11.71180272102356,
         "startTime": "\"2023-12-08T12:43:32.640067\"",
         "endTime": "\"2023-12-08T12:43:44.351870\"",
@@ -162,6 +73,272 @@
         "image_pixels": [
             60,
             60
+        ]
+    },
+    {
+        "userName": "user b",
+        "iterations": 8,
+        "runTime": 105.64581274986267,
+        "startTime": "\"2023-12-08T13:13:16.190635\"",
+        "endTime": "\"2023-12-08T13:15:01.836447\"",
+        "error": 8.874483302727019e-05,
+        "matrix": "1",
+        "signType": "G-2",
+        "signGain": false,
+        "algorithm": "cgnr",
+        "cpu (%)": 11.68,
+        "ram_usage (GB)": 14.58,
+        "ram_available (GB)": 1.11,
+        "image_pixels": [
+            60,
+            60
+        ]
+    },
+    {
+        "userName": "user b",
+        "iterations": 101,
+        "runTime": 110.926429271698,
+        "startTime": "\"2023-12-08T13:27:36.484061\"",
+        "endTime": "\"2023-12-08T13:29:27.410491\"",
+        "error": 38253.61039358005,
+        "matrix": "1",
+        "signType": "G-3",
+        "signGain": true,
+        "algorithm": "cgnr",
+        "cpu (%)": 21.6,
+        "ram_usage (GB)": 12.55,
+        "ram_available (GB)": 3.14,
+        "image_pixels": [
+            60,
+            60
+        ]
+    },
+    {
+        "userName": "user b",
+        "iterations": 101,
+        "runTime": 117.59743285179138,
+        "startTime": "\"2023-12-08T13:31:35.062119\"",
+        "endTime": "\"2023-12-08T13:33:32.659552\"",
+        "error": 66.85642055033532,
+        "matrix": "1",
+        "signType": "G-3",
+        "signGain": false,
+        "algorithm": "cgnr",
+        "cpu (%)": 22.4,
+        "ram_usage (GB)": 14.21,
+        "ram_available (GB)": 1.48,
+        "image_pixels": [
+            60,
+            60
+        ]
+    },
+    {
+        "userName": "user b",
+        "iterations": 101,
+        "runTime": 229.7203118801117,
+        "startTime": "\"2023-12-08T13:40:56.778318\"",
+        "endTime": "\"2023-12-08T13:44:46.514248\"",
+        "error": 66.85642055033532,
+        "matrix": "1",
+        "signType": "G-3",
+        "signGain": false,
+        "algorithm": "cgnr",
+        "cpu (%)": 16.87,
+        "ram_usage (GB)": 12.35,
+        "ram_available (GB)": 3.34,
+        "image_pixels": [
+            60,
+            60
+        ]
+    },
+    {
+        "userName": "user a",
+        "iterations": 8,
+        "runTime": 222.8985550403595,
+        "startTime": "\"2023-12-08T13:44:50.150163\"",
+        "endTime": "\"2023-12-08T13:48:33.048718\"",
+        "error": 8.874483302727019e-05,
+        "matrix": "1",
+        "signType": "G-2",
+        "signGain": false,
+        "algorithm": "cgnr",
+        "cpu (%)": 14.9,
+        "ram_usage (GB)": 14.27,
+        "ram_available (GB)": 1.43,
+        "image_pixels": [
+            60,
+            60
+        ]
+    },
+    {
+        "userName": "user b",
+        "iterations": 2,
+        "runTime": 12.911906242370605,
+        "startTime": "\"2023-12-08T13:48:36.463373\"",
+        "endTime": "\"2023-12-08T13:48:49.375279\"",
+        "error": 3.484055313265682e-05,
+        "matrix": "2",
+        "signType": "G-1",
+        "signGain": false,
+        "algorithm": "cgnr",
+        "cpu (%)": 13.64,
+        "ram_usage (GB)": 12.33,
+        "ram_available (GB)": 3.36,
+        "image_pixels": [
+            30,
+            30
+        ]
+    },
+    {
+        "userName": "user c",
+        "iterations": 101,
+        "runTime": 305.6726288795471,
+        "startTime": "\"2023-12-08T14:18:14.208641\"",
+        "endTime": "\"2023-12-08T14:23:19.881270\"",
+        "error": 0.0036955019218744,
+        "matrix": "1",
+        "signType": "G-2",
+        "signGain": true,
+        "algorithm": "cgnr",
+        "cpu (%)": 13.61,
+        "ram_usage (GB)": 14.6,
+        "ram_available (GB)": 1.09,
+        "image_pixels": [
+            60,
+            60
+        ]
+    },
+    {
+        "userName": "user a",
+        "iterations": 101,
+        "runTime": 120.52626466751099,
+        "startTime": "\"2023-12-08T14:44:15.950979\"",
+        "endTime": "\"2023-12-08T14:46:16.492831\"",
+        "error": 0.0036955019218744,
+        "matrix": "1",
+        "signType": "G-2",
+        "signGain": true,
+        "algorithm": "cgnr",
+        "cpu (%)": 21.75,
+        "ram_usage (GB)": 14.38,
+        "ram_available (GB)": 1.31,
+        "image_pixels": [
+            60,
+            60
+        ]
+    },
+    {
+        "userName": "user c",
+        "iterations": 2,
+        "runTime": 13.072167158126831,
+        "startTime": "\"2023-12-08T14:46:20.133163\"",
+        "endTime": "\"2023-12-08T14:46:33.205330\"",
+        "error": 5.4404658455446285e-05,
+        "matrix": "2",
+        "signType": "G-2",
+        "signGain": false,
+        "algorithm": "cgnr",
+        "cpu (%)": 0,
+        "ram_usage (GB)": 14.95,
+        "ram_available (GB)": 0.75,
+        "image_pixels": [
+            30,
+            30
+        ]
+    },
+    {
+        "userName": "user a",
+        "iterations": 2,
+        "runTime": 143.73071360588074,
+        "startTime": "\"2023-12-08T14:47:09.545873\"",
+        "endTime": "\"2023-12-08T14:49:33.336334\"",
+        "error": 6.277707631943593e-05,
+        "matrix": "1",
+        "signType": "G-1",
+        "signGain": false,
+        "algorithm": "cgnr",
+        "cpu (%)": 9.43,
+        "ram_usage (GB)": 14.52,
+        "ram_available (GB)": 1.17,
+        "image_pixels": [
+            60,
+            60
+        ]
+    },
+    {
+        "userName": "user b",
+        "iterations": 101,
+        "runTime": 253.43029522895813,
+        "startTime": "\"2023-12-08T14:59:56.749890\"",
+        "endTime": "\"2023-12-08T15:04:10.182183\"",
+        "error": 0.002022498368986436,
+        "matrix": "1",
+        "signType": "G-1",
+        "signGain": true,
+        "algorithm": "cgnr",
+        "cpu (%)": 16.98,
+        "ram_usage (GB)": 14.55,
+        "ram_available (GB)": 1.14,
+        "image_pixels": [
+            60,
+            60
+        ]
+    },
+    {
+        "userName": "user a",
+        "iterations": 101,
+        "runTime": 27.322252988815308,
+        "startTime": "\"2023-12-08T16:16:30.234292\"",
+        "endTime": "\"2023-12-08T16:16:57.556545\"",
+        "error": 2812460.047511816,
+        "matrix": "2",
+        "signType": "G-3",
+        "signGain": true,
+        "algorithm": "cgnr",
+        "cpu (%)": 14.63,
+        "ram_usage (GB)": 7.1,
+        "ram_available (GB)": 8.59,
+        "image_pixels": [
+            30,
+            30
+        ]
+    },
+    {
+        "userName": "user a",
+        "iterations": 101,
+        "runTime": 214.54732489585876,
+        "startTime": "\"2023-12-08T16:17:00.868196\"",
+        "endTime": "\"2023-12-08T16:20:35.431195\"",
+        "error": 0.0036955019218744,
+        "matrix": "1",
+        "signType": "G-2",
+        "signGain": true,
+        "algorithm": "cgnr",
+        "cpu (%)": 18.1,
+        "ram_usage (GB)": 12.56,
+        "ram_available (GB)": 3.13,
+        "image_pixels": [
+            60,
+            60
+        ]
+    },
+    {
+        "userName": "user c",
+        "iterations": 2,
+        "runTime": 17.40121293067932,
+        "startTime": "\"2023-12-08T16:38:57.950245\"",
+        "endTime": "\"2023-12-08T16:39:15.351458\"",
+        "error": 5.4404658455446285e-05,
+        "matrix": "2",
+        "signType": "G-2",
+        "signGain": false,
+        "algorithm": "cgnr",
+        "cpu (%)": 14.61,
+        "ram_usage (GB)": 9.57,
+        "ram_available (GB)": 6.13,
+        "image_pixels": [
+            30,
+            30
         ]
     }
 ]
