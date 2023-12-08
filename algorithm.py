@@ -10,10 +10,9 @@ import cv2 as cv
 from helpers.utils import image_reshape, processing_requirements
 
 
-def export_results(image, matrix_type, start_time, user, count, error, signal_type, algorithm, req_count):
+def export_results(image, matrix_type, start_time, user, count, abs_error, signal_type, algorithm, req_count):
     image = image_reshape(image, matrix_type)
     process = psutil.Process()
-    memory = process.memory_info().rss / 1000000
     run_time = time.time() - start_time
 
     v = False
@@ -24,12 +23,13 @@ def export_results(image, matrix_type, start_time, user, count, error, signal_ty
         "userName": user,
         "iterations": count,
         "runTime": run_time,
-        "error": error,
-        "memory": memory,
+        "error": abs_error,
         "matrix": matrix_type,
         "signType": signal_type,
         "algorithm": algorithm,
-        "cpu": avr_cpu_usage,
+        "cpu (%)": avr_cpu_usage,
+        "ram_usage (GB)": avr_ram_usage,
+        "ram_available (GB)": avr_ram_available
     }
     print(f'Result: `{data}')
     print(algorithm)
@@ -48,12 +48,13 @@ def export_results(image, matrix_type, start_time, user, count, error, signal_ty
                   indent=4,
                   separators=(',', ': '))
 
-    memory = process.memory_info().rss / 1000000
     final = cv.resize(image, None, fx=10, fy=10, interpolation=cv.INTER_AREA)
     cv.imwrite(f'./results/{algorithm}_result_{req_count}.png', final)
 
 def cgne(matrix_type, signal_type, user, algorithm, req_count):
     global avr_cpu_usage
+    global avr_ram_available
+    global avr_ram_used
     global v
     start_time = time.time()
 
@@ -65,9 +66,10 @@ def cgne(matrix_type, signal_type, user, algorithm, req_count):
     # f0=0
     image = np.zeros_like(len(p))
 
-    count = 1    
-    for i in range(30):
-        print(f"[Iteração {i + 1}]")
+    count = 1   
+
+    while True:
+        print(f"[Iteração {count}]")
         print("executando CGNE")
         # αi=rTiripTipi
         alpha = np.dot(entry_sign.T, entry_sign) / np.dot(p.T, p)
@@ -80,8 +82,10 @@ def cgne(matrix_type, signal_type, user, algorithm, req_count):
 
         # ϵ=||ri+1||2−||ri||2
         error = np.linalg.norm(entry_sign, ord=2) - np.linalg.norm(ri, ord=2)
+        
         abs_error = abs(error)
-        if abs_error < 1e-4:
+        
+        if abs_error < 1e-4 or count > 100:
             break
 
         # βi=rTi+1ri+1rTiri
@@ -95,10 +99,12 @@ def cgne(matrix_type, signal_type, user, algorithm, req_count):
     v = False
     time.sleep(0.25)
 
-    export_results(image, matrix_type, start_time, user, count, error, signal_type, algorithm, req_count)
+    export_results(image, matrix_type, start_time, user, count, abs_error, signal_type, algorithm, req_count)
 
 def cgnr(matrix_type, signal_type, user, algorithm, req_count):
     global avr_cpu_usage
+    global avr_ram_usage
+    global avr_ram_available
     global v
     start_time = time.time()
 
@@ -113,9 +119,10 @@ def cgnr(matrix_type, signal_type, user, algorithm, req_count):
 
     count = 1
     
-    for i in range(30):
-        print(f"[Iteração {i + 1}]")
-        print("executando CGNE")
+    while True:
+        
+        print(f"[Iteração {count}]")
+        print("executando CGNR")
 
         # wi=Hpi
         w = np.matmul(matrix, p)
@@ -140,16 +147,16 @@ def cgnr(matrix_type, signal_type, user, algorithm, req_count):
 
         # ϵ=||ri+1||2−||ri||2
         error = np.linalg.norm(ri, ord=2) - np.linalg.norm(entry_sign, ord=2)
+       
         abs_error = abs(error)
-        if abs_error < 1e-4:
+        if abs_error < 1e-4 or count > 100 :
             break
 
         count += 1
 
     image = image_reshape(image, matrix_type)
     process = psutil.Process()
-    memory = process.memory_info().rss / 1000000
-    run_time = time.time() - start_time
+    run_time = round(time.time() - start_time, 2)
 
     v = False
 
@@ -159,12 +166,13 @@ def cgnr(matrix_type, signal_type, user, algorithm, req_count):
         "userName": user,
         "iterations": count,
         "runTime": run_time,
-        "error": error,
-        "memory": memory,
+        "error": abs_error,
         "matrix": matrix_type,
         "signType": signal_type,
         "algorithm": algorithm,
-        "cpu": avr_cpu_usage,
+        "cpu (%)": avr_cpu_usage,
+        "ram_usage (GB)": avr_ram_usage,
+        "ram_available (GB)": avr_ram_available
     }
     print(data)
     filename = './results/report_cgnr.json'
@@ -182,8 +190,6 @@ def cgnr(matrix_type, signal_type, user, algorithm, req_count):
                             indent=4,  
                             separators=(',',': '))
 
-
-    memory = process.memory_info().rss / 1000000
     final = cv.resize(image, None, fx=10, fy=10, interpolation=cv.INTER_AREA)
     cv.imwrite(f'./results/cgnr_result_{req_count}.png', final)
 
@@ -195,14 +201,37 @@ def monitor_cpu_usage():
     v = True
     avr_cpu_usage = 0
 
+
     cpu_usage_list_by_second = []
     while v:
         cpu_usage_list_by_second.append(psutil.cpu_percent(interval=0.25))
-    avr_cpu_usage = np.average(cpu_usage_list_by_second)
+    avr_cpu_usage = np.round(np.average(cpu_usage_list_by_second), 2)
+
+def ram_usage():
+    global v
+    global avr_ram_available
+    global avr_ram_usage
+
+    v = True
+    avr_ram_usage = 0
+    avr_ram_available = 0
+
+    ram_available_list_by_second = []
+    ram_usage_list_by_second = []
+
+    while v:
+        ram_available_list_by_second.append(psutil.virtual_memory().available)
+        ram_usage_list_by_second.append(psutil.virtual_memory().used)
+
+    avr_ram_available = np.round(np.average(ram_available_list_by_second) / (1024.0 ** 3), 2)
+    avr_ram_usage = np.round(np.average(ram_usage_list_by_second) / (1024.0 ** 3), 2)
 
 def execute_algorithm(random_params):
     thread_cpu = threading.Thread(target=monitor_cpu_usage)
     thread_cpu.start()
+
+    thread_ram = threading.Thread(target=ram_usage)
+    thread_ram.start()
 
     args = (
                 random_params["matrix_type"], 
@@ -226,6 +255,7 @@ def execute_algorithm(random_params):
 
     thread_alg.join()
     thread_cpu.join()
+    thread_ram.join()
 
 
 if __name__ == '__main__':

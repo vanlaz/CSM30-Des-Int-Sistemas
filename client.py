@@ -33,7 +33,6 @@ def producer(queue):
     req_count = 0
     while True:
         random_params = random_params_to_execute(req_count)
-        time.sleep(random.randint(0, 3))
         req_count += 1
         queue.put(random_params)
 
