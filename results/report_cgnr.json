@@ -87,5 +87,81 @@
         "cpu (%)": 22.8,
         "ram_usage (GB)": 12.19,
         "ram_available (GB)": 3.5
+    },
+    {
+        "userName": "user c",
+        "iterations": 2,
+        "runTime": 11.71180272102356,
+        "startTime": "\"2023-12-08T12:43:32.640067\"",
+        "endTime": "\"2023-12-08T12:43:44.351870\"",
+        "error": 5.4404658455446285e-05,
+        "matrix": "2",
+        "signType": "G-2",
+        "signGain": false,
+        "algorithm": "cgnr",
+        "cpu (%)": 10.08,
+        "ram_usage (GB)": 11.11,
+        "ram_available (GB)": 4.58,
+        "image_pixels": [
+            30,
+            30
+        ]
+    },
+    {
+        "userName": "user c",
+        "iterations": 101,
+        "runTime": 29.42781901359558,
+        "startTime": "\"2023-12-08T12:47:07.922618\"",
+        "endTime": "\"2023-12-08T12:47:37.350437\"",
+        "error": 0.0007767967935573133,
+        "matrix": "2",
+        "signType": "G-2",
+        "signGain": true,
+        "algorithm": "cgnr",
+        "cpu (%)": 16.58,
+        "ram_usage (GB)": 13.52,
+        "ram_available (GB)": 2.17,
+        "image_pixels": [
+            30,
+            30
+        ]
+    },
+    {
+        "userName": "user b",
+        "iterations": 101,
+        "runTime": 99.02674412727356,
+        "startTime": "\"2023-12-08T13:02:17.579042\"",
+        "endTime": "\"2023-12-08T13:03:56.605786\"",
+        "error": 66.85642055033532,
+        "matrix": "1",
+        "signType": "G-3",
+        "signGain": false,
+        "algorithm": "cgnr",
+        "cpu (%)": 25.58,
+        "ram_usage (GB)": 10.33,
+        "ram_available (GB)": 5.36,
+        "image_pixels": [
+            60,
+            60
+        ]
+    },
+    {
+        "userName": "user b",
+        "iterations": 101,
+        "runTime": 149.8299605846405,
+        "startTime": "\"2023-12-08T13:03:59.997426\"",
+        "endTime": "\"2023-12-08T13:06:29.827387\"",
+        "error": 38253.61039358005,
+        "matrix": "1",
+        "signType": "G-3",
+        "signGain": true,
+        "algorithm": "cgnr",
+        "cpu (%)": 18.57,
+        "ram_usage (GB)": 14.07,
+        "ram_available (GB)": 1.62,
+        "image_pixels": [
+            60,
+            60
+        ]
     }
 ]

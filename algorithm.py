@@ -1,7 +1,7 @@
 import json
 import random
 import time
-
+from datetime import datetime
 import numpy as np
 import psutil
 import threading
@@ -9,22 +9,31 @@ import cv2 as cv
 
 from helpers.utils import image_reshape, processing_requirements
 
+def serialize_datetime(obj): 
+    if isinstance(obj, datetime): 
+        return obj.isoformat() 
+    raise TypeError("Type not serializable") 
 
 def export_results(image, matrix_type, start_time, user, count, abs_error, signal_type, signal_gain, algorithm, req_count):
     image = image_reshape(image, matrix_type)
     process = psutil.Process()
     run_time = time.time() - start_time
 
+    start_time_aux = json.dumps(datetime.fromtimestamp(start_time), default=serialize_datetime)
+    end_time = json.dumps(datetime.fromtimestamp(time.time()), default=serialize_datetime)
+
     v = False
 
     time.sleep(0.2)
+
+    image_pixels = np.array(image).shape
 
     data = {
         "userName": user,
         "iterations": count,
         "runTime": run_time,
-        "startTime": start_time,
-        "endTime": time.time(),
+        "startTime": start_time_aux,
+        "endTime": end_time,
         "error": abs_error,
         "matrix": matrix_type,
         "signType": signal_type,
@@ -32,7 +41,8 @@ def export_results(image, matrix_type, start_time, user, count, abs_error, signa
         "algorithm": algorithm,
         "cpu (%)": avr_cpu_usage,
         "ram_usage (GB)": avr_ram_usage,
-        "ram_available (GB)": avr_ram_available
+        "ram_available (GB)": avr_ram_available,
+        "image_pixels": image_pixels
     }
     print(f'Result: `{data}')
     filename = f'./results/report_{algorithm}.json'
